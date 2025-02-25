@@ -1,0 +1,476 @@
+:root {
+  --color-neutral-10: #0d1117;
+  --color-neutral-20: #161b22;
+  --color-neutral-30: #21262d;
+  --color-neutral-40: #30363d;
+  --color-neutral-50: #8b949e;
+  --color-neutral-60: #c9d1d981;
+  --color-neutral-70: #ffffff;
+  --color-neutral-80: #c9d1d942;
+  --color-neutral-button: #7e7cc6d2;
+  --color-neutral-button-recuse: #6360afd2;
+  --color-link: #58a6ff;
+}
+
+/* Estilos gerais */
+* {
+  font-family: Poppins, sans-serif; /* Aplica Roboto globalmente para todos os elementos textuais */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 15px;
+  position: relative;
+}
+
+main {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+header {
+  color: #000;
+  text-align: center;
+  padding: 1em;
+  border-radius: 8px 8px 0 0;
+}
+
+.header-logo {
+  max-width: 300px; /* Ajuste o tamanho máximo da imagem conforme necessário */
+  height: auto;
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Tela de duplas */
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: flex-start;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+  min-width: 150px;
+  text-align: right;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9em;
+  width: 200px;
+  transition: border-color 0.3s;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+  border-color: var(--color-neutral-60);
+  outline: none;
+}
+
+/* Lista de duplas */
+.duplas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  width: 108%;
+  background-color: var(--color-neutral-60);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  left: -6px;
+  transform: translateX(5px);
+}
+
+.dupla-inputs {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.dupla-inputs .input-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 0;
+}
+
+.dupla-inputs label {
+  font-weight: bold;
+  color: #333;
+  min-width: 80px;
+  text-align: right;
+}
+
+.dupla-inputs input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9em;
+  width: 200px;
+  transition: border-color 0.3s;
+}
+
+.dupla-inputs input:focus {
+  border-color: var(--color-neutral-60);
+  outline: none;
+}
+
+.duplas-list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 5px;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.duplas-list-grid li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 0;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--color-neutral-60);
+}
+
+/* Texto "Informe os jogadores" */
+.informe-jogadores {
+  color: #333;
+  font-size: 1em;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Botões */
+button {
+  background-color: var(--color-neutral-button);
+  border: none;
+  color: #000;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  display: flex; /* Usa flex para alinhar ícone e texto */
+  align-items: center; /* Alinha verticalmente o ícone e o texto */
+  gap: 8px; /* Espaço entre o ícone e o texto */
+}
+
+.button-icon {
+  width: 16px; /* Ajuste o tamanho do ícone conforme necessário */
+  height: auto; /* Mantém a proporção do SVG */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.remover {
+  background-color: #911a0c;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.remover:hover {
+  background-color: #7a1509;
+}
+
+.adicionar-dupla {
+  background-color: var(--color-neutral-button);
+  color: black;
+  padding: 6px 12px;
+}
+
+.adicionar-dupla:hover {
+  opacity: 0.8;
+}
+
+.iniciar-torneio {
+  background-color: #f39c12;
+  padding: 6px 12px;
+}
+
+.iniciar-torneio:hover {
+  background-color: #e67e22;
+}
+
+button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover) {
+  background-color: #6c757d;
+  padding: 6px 12px;
+}
+
+button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):hover {
+  background-color: #5a6268;
+}
+
+/* Tabelas de grupos e chaves */
+.acompanhamento {
+  margin-top: 20px;
+
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+.grupo, .rodada {
+  margin: 10px 0;
+}
+
+.grupo {
+  background-color: var(--color-neutral-60);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 110%; /* Aumenta a largura para exceder 5% do container */
+  position: relative; /* Permite o uso de left para deslocamento */
+  left: -6px; /* Desloca ligeiramente para a esquerda para criar overflow à direita */
+  transform: translateX(5px); /* Ajusta o posicionamento para criar um overflow sutil à direita */
+}
+
+.grupo:last-child {
+  margin-bottom: 0;
+}
+
+h2, h3, h4 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+p{
+margin-top: 10px;
+font-size: 14px;
+}
+
+
+/* Listas de duplas nos grupos (ajustado para duas colunas) */
+.group-duplas {
+  list-style: none;
+  background-color:var(--color-neutral-60);
+  border-radius: 10px;
+  padding: 5px;
+  margin: 0;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.group-duplas li {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+/* Opcional: Ajuste para telas menores */
+@media (max-width: 600px) {
+  .group-duplas {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #555;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Estilo para jogos com quadra */
+td:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Ajuste para jogos */
+.jogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.dupla {
+  flex: 1;
+  text-align: left;
+  font-size: 12px;
+}
+
+.placar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.placar input {
+  width: 50px;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Personalizando a imagem */
+.tournament-setup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-section {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+  justify-content: left;
+}
+
+.tournament-image {
+  max-width: 250px;
+  height: auto;
+  margin-top: 0;
+}
+
+/* Ajuste no .duplas-section para garantir que ocupe o espaço completo */
+.duplas-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.relatorio-estatisticas {
+  background-color: var(--color-neutral-60);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 110%; /* Aumenta a largura para exceder 5% do container */
+  position: relative; /* Permite o uso de left para deslocamento */
+  left: -6px; /* Desloca ligeiramente para a esquerda para criar overflow à direita */
+  transform: translateX(5px); /* Ajusta o posicionamento para criar um overflow sutil à direita */
+}
+
+.relatorio-estatisticas h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.relatorio-estatisticas h4 {
+  color: #34495e;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.relatorio-estatisticas p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.relatorio-estatisticas table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.relatorio-estatisticas th,
+.relatorio-estatisticas td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.relatorio-estatisticas th {
+  background-color: #34495e;
+  color: white;
+}
+
+.relatorio-estatisticas tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* No final do App.css, após todas as outras regras */
+.novo-torneio-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #28a745 !important; /* Verde, com !important para teste */
+  color: white !important;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.novo-torneio-btn:hover {
+  background-color: #218838 !important; /* Verde escuro no hover */
+}
+
+button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torneio-btn) {
+  background-color: #6c757d;
+  padding: 6px 12px;
+}
+
+button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torneio-btn):hover {
+  background-color: #5a6268;
+}
