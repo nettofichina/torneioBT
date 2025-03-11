@@ -14,7 +14,7 @@
 
 /* Estilos gerais */
 * {
-  font-family: Poppins, sans-serif; /* Aplica Roboto globalmente para todos os elementos textuais */
+  font-family: Poppins, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -44,9 +44,9 @@ header {
 }
 
 .header-logo {
-  max-width: 300px; /* Ajuste o tamanho máximo da imagem conforme necessário */
+  max-width: 300px;
   height: auto;
-  margin: 0 auto; /* Centraliza horizontalmente */
+  margin: 0 auto;
 }
 
 /* Tela de duplas */
@@ -175,14 +175,14 @@ button {
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s;
-  display: flex; /* Usa flex para alinhar ícone e texto */
-  align-items: center; /* Alinha verticalmente o ícone e o texto */
-  gap: 8px; /* Espaço entre o ícone e o texto */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .button-icon {
-  width: 16px; /* Ajuste o tamanho do ícone conforme necessário */
-  height: auto; /* Mantém a proporção do SVG */
+  width: 16px;
+  height: auto;
 }
 
 .button-container {
@@ -233,7 +233,6 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):hover {
 /* Tabelas de grupos e chaves */
 .acompanhamento {
   margin-top: 20px;
-
   padding: 15px;
   border-radius: 10px;
   font-size: 14px;
@@ -244,7 +243,8 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):hover {
   float: none;
 }
 
-.grupo, .rodada {
+.grupo,
+.rodada {
   margin: 10px 0;
 }
 
@@ -254,32 +254,33 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 15px;
   margin-bottom: 20px;
-  width: 110%; /* Aumenta a largura para exceder 5% do container */
-  position: relative; /* Permite o uso de left para deslocamento */
-  left: -6px; /* Desloca ligeiramente para a esquerda para criar overflow à direita */
-  transform: translateX(5px); /* Ajusta o posicionamento para criar um overflow sutil à direita */
+  width: 110%;
+  position: relative;
+  left: -6px;
+  transform: translateX(5px);
 }
 
 .grupo:last-child {
   margin-bottom: 0;
 }
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
   color: #333;
   margin-bottom: 10px;
   font-size: 1.2em;
 }
 
-p{
-margin-top: 10px;
-font-size: 14px;
+p {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
-
-/* Listas de duplas nos grupos (ajustado para duas colunas) */
+/* Listas de duplas nos grupos */
 .group-duplas {
   list-style: none;
-  background-color:var(--color-neutral-60);
+  background-color: var(--color-neutral-60);
   border-radius: 10px;
   padding: 5px;
   margin: 0;
@@ -296,14 +297,6 @@ font-size: 14px;
   font-size: 14px;
 }
 
-/* Opcional: Ajuste para telas menores */
-@media (max-width: 600px) {
-  .group-duplas {
-    grid-template-columns: 1fr;
-  }
-}
-
-
 table {
   width: 100%;
   border-collapse: separate;
@@ -314,7 +307,8 @@ table {
   overflow: hidden;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ddd;
   padding: 6px 8px;
   text-align: center;
@@ -332,7 +326,6 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Estilo para jogos com quadra */
 td:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -390,7 +383,7 @@ td:nth-child(2) {
   margin-top: 0;
 }
 
-/* Ajuste no .duplas-section para garantir que ocupe o espaço completo */
+/* Ajuste no .duplas-section */
 .duplas-section {
   display: flex;
   flex-direction: column;
@@ -405,10 +398,10 @@ td:nth-child(2) {
   margin-top: 20px;
   padding: 15px;
   margin-bottom: 20px;
-  width: 110%; /* Aumenta a largura para exceder 5% do container */
-  position: relative; /* Permite o uso de left para deslocamento */
-  left: -6px; /* Desloca ligeiramente para a esquerda para criar overflow à direita */
-  transform: translateX(5px); /* Ajusta o posicionamento para criar um overflow sutil à direita */
+  width: 110%;
+  position: relative;
+  left: -6px;
+  transform: translateX(5px);
 }
 
 .relatorio-estatisticas h3 {
@@ -449,11 +442,11 @@ td:nth-child(2) {
   background-color: #f2f2f2;
 }
 
-/* No final do App.css, após todas as outras regras */
+/* Botão novo torneio */
 .novo-torneio-btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #28a745 !important; /* Verde, com !important para teste */
+  background-color: #28a745 !important;
   color: white !important;
   border: none;
   border-radius: 5px;
@@ -463,7 +456,7 @@ td:nth-child(2) {
 }
 
 .novo-torneio-btn:hover {
-  background-color: #218838 !important; /* Verde escuro no hover */
+  background-color: #218838 !important;
 }
 
 button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torneio-btn) {
@@ -473,4 +466,151 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torne
 
 button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torneio-btn):hover {
   background-color: #5a6268;
+}
+
+/* Ajustes para dispositivos móveis (até 600px) */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .input-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  label {
+    min-width: unset;
+    text-align: left;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    font-size: 1em;
+  }
+
+  .duplas-list-grid,
+  .group-duplas {
+    grid-template-columns: 1fr;
+    font-size: 0.95em;
+  }
+
+  .grupo,
+  .relatorio-estatisticas {
+    width: 100%;
+    left: 0;
+    transform: none;
+    padding: 10px;
+  }
+
+  .duplas-lista {
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+
+  button {
+    padding: 10px 16px;
+    font-size: 1em;
+    min-width: 100px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    font-size: 0.9em;
+    min-width: 80px;
+  }
+
+  .header-logo,
+  .tournament-image {
+    max-width: 80%;
+    max-width: min(80%, 200px); /* Ajuste específico para a imagem */
+  }
+
+  .image-section {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+/* Garante o layout original no desktop (acima de 600px) */
+@media (min-width: 601px) {
+  .App {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .input-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  label {
+    min-width: 150px;
+    text-align: right;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="time"] {
+    width: 200px;
+    padding: 6px;
+    font-size: 0.9em;
+  }
+
+  .duplas-list-grid,
+  .group-duplas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grupo,
+  .relatorio-estatisticas {
+    width: 110%;
+    left: -6px;
+    transform: translateX(5px);
+    padding: 15px;
+  }
+
+  .duplas-lista {
+    width: 108%;
+    left: -6px;
+    transform: translateX(5px);
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .button-container {
+    flex-direction: row;
+    gap: 10px;
+  }
 }
