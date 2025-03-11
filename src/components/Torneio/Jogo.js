@@ -35,9 +35,11 @@ function Jogo({ jogo, onSubmeterPlacar }) {
         ) : (
           <>
             <input 
+              type="tel" // Define como telefone para permitir hífen e abrir teclado numérico
+              inputMode="numeric" // Força o teclado numérico em dispositivos móveis
               value={placar}
               onChange={(e) => setPlacar(e.target.value)}
-              placeholder="Placar"
+              placeholder="Placar (ex: 3-2)"
             />
             <button onClick={handleSubmitScore}>Submeter Placar</button>
           </>
