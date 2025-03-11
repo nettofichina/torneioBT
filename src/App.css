@@ -338,10 +338,11 @@ td:nth-child(2) {
   align-items: center;
   gap: 8px;
   margin-bottom: 5px;
+  flex-wrap: wrap; /* Permite que quebre em mobile */
 }
 
 .dupla {
-  flex: 1;
+  flex: 1 1 60%; /* Dá mais espaço para o texto da dupla */
   text-align: left;
   font-size: 12px;
 }
@@ -350,14 +351,16 @@ td:nth-child(2) {
   display: flex;
   align-items: center;
   gap: 5px;
+  flex: 1 1 40%; /* Reduz espaço do placar */
 }
 
 .placar input {
-  width: 50px;
+  width: 70px; /* Reduz a largura do input */
   text-align: center;
   padding: 4px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 0.85em; /* Reduz a fonte do input */
 }
 
 /* Personalizando a imagem */
@@ -545,12 +548,39 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torne
   .header-logo,
   .tournament-image {
     max-width: 80%;
-    max-width: min(80%, 200px); /* Ajuste específico para a imagem */
+    max-width: min(80%, 200px);
   }
 
   .image-section {
     margin-left: 0;
     justify-content: center;
+  }
+
+  h3,
+  h4 {
+    font-size: 1em;
+  }
+
+  /* Ajustes específicos para o placar em mobile */
+  .jogo {
+    flex-direction: column; /* Empilha os elementos em mobile */
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .dupla {
+    flex: 1 1 100%; /* Ocupa toda a largura */
+    font-size: 0.9em;
+  }
+
+  .placar {
+    flex: 1 1 100%; /* Ocupa toda a largura */
+    justify-content: flex-start;
+  }
+
+  .placar input {
+    width: 60px; /* Reduz ainda mais a largura em mobile */
+    font-size: 0.8em; /* Reduz a fonte */
   }
 }
 
@@ -612,5 +642,10 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torne
   .button-container {
     flex-direction: row;
     gap: 10px;
+  }
+
+  h3,
+  h4 {
+    font-size: 1.2em;
   }
 }
