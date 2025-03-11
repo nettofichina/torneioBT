@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/torneioBT/static/css/main.ebd2d3c5.css",
-    "main.js": "/torneioBT/static/js/main.2d12af5a.js",
+    "main.css": "/torneioBT/static/css/main.b82bfa88.css",
+    "main.js": "/torneioBT/static/js/main.56fa3d55.js",
     "static/js/488.76e8b861.chunk.js": "/torneioBT/static/js/488.76e8b861.chunk.js",
     "static/media/game-day.svg": "/torneioBT/static/media/game-day.8a89dbc4cbe6a3690f10e64e0060ede2.svg",
     "static/media/btConnect.png": "/torneioBT/static/media/btConnect.38544d22fff6bcd79c8b.png",
@@ -9,12 +9,12 @@
     "index.html": "/torneioBT/index.html",
     "static/media/person_add.svg": "/torneioBT/static/media/person_add.c0393ddaac3c1909a4d4c7882e8bfd7a.svg",
     "static/media/group_remove.svg": "/torneioBT/static/media/group_remove.a2dea408ee66d98c0e6956ee9565f1f9.svg",
-    "main.ebd2d3c5.css.map": "/torneioBT/static/css/main.ebd2d3c5.css.map",
-    "main.2d12af5a.js.map": "/torneioBT/static/js/main.2d12af5a.js.map",
+    "main.b82bfa88.css.map": "/torneioBT/static/css/main.b82bfa88.css.map",
+    "main.56fa3d55.js.map": "/torneioBT/static/js/main.56fa3d55.js.map",
     "488.76e8b861.chunk.js.map": "/torneioBT/static/js/488.76e8b861.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebd2d3c5.css",
-    "static/js/main.2d12af5a.js"
+    "static/css/main.b82bfa88.css",
+    "static/js/main.56fa3d55.js"
   ]
 }
