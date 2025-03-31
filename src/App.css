@@ -7,6 +7,7 @@
   --color-neutral-60: #c9d1d981;
   --color-neutral-70: #ffffff;
   --color-neutral-80: #c9d1d942;
+  --color-neutral-90: #c9d1d9;
   --color-neutral-button: #7e7cc6d2;
   --color-neutral-button-recuse: #6360afd2;
   --color-link: #58a6ff;
@@ -214,11 +215,12 @@ button {
 
 .iniciar-torneio {
   background-color: #f39c12;
-  padding: 6px 12px;
+  padding: 4px 8px;
+  font-size: 14px;
 }
 
 .iniciar-torneio:hover {
-  background-color: #e67e22;
+  opacity: 0.9;
 }
 
 button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover) {
@@ -229,6 +231,65 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover) {
 button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):hover {
   background-color: #5a6268;
 }
+
+.GerarChaves{
+  background-color: #6b34e1b0 !important;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.GerarChaves:hover{
+  opacity: 0.9;
+}
+
+.homePage{
+  background-color: #22a188 !important;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.homePage:hover{
+  opacity: 0.9;
+}
+
+.exportarTorneio {
+  background-color: #3498db; /* Azul suave */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.exportarTorneio:hover {
+  background-color: #2980b9;
+}
+
+.importarTorneio {
+  background-color: #2ecc71; /* Verde suave */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block; /* Para o label funcionar como botão */
+  text-align: center;
+}
+
+.importarTorneio:hover {
+  background-color: #27ae60;
+}
+
+/* Ajuste o button-container para alinhar os botões */
+.meus-torneios .button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+
+
 
 /* Tabelas de grupos e chaves */
 .acompanhamento {
@@ -647,5 +708,171 @@ button:not(.iniciar-torneio):not(.adicionar-dupla):not(.remover):not(.novo-torne
   h3,
   h4 {
     font-size: 1.2em;
+  }
+}
+
+.meus-torneios ul {
+  list-style: none;
+  padding: 0;
+}
+.meus-torneios li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.criarTorneio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  background-color: var(--color-neutral-button) !important;
+}
+
+.criarTorneio:hover {
+  opacity: 0.8;
+}
+
+.buttonAction {
+  display: flex;
+  gap: 10px;
+}
+
+.OpenButton {
+  background-color: #218838 !important;
+  color: white;
+  font-size: 12px;
+  padding: 8px !important;
+  height: 30px;
+}
+.OpenButton:hover {
+  opacity: 0.8;
+}
+
+.DeleteButton {
+  background-color: #9f2424 !important;
+  color: white;
+  font-size: 12px;
+  padding: 8px !important;
+  height: 30px;
+}
+.DeleteButton:hover {
+  opacity: 0.8;
+}
+
+/* Estilização minimalista e delicada para o Histórico de Jogos */
+.historico-jogos {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: var(--color-neutral-70); /* Fundo branco puro */
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra muito suave */
+  border: 1px solid var(--color-neutral-80); /* Borda quase transparente */
+  width: 100%;
+  position: relative;
+  left: -6px;
+  transform: translateX(5px);
+}
+
+.historico-jogos h4 {
+  color: #2c3e50; /* Azul escuro suave */
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  font-weight: 600; /* Leve, sem negrito */
+  text-align: left;
+}
+
+.historico-jogos h5 {
+  color: #34495e; /* Tom médio para subtítulos */
+  font-size: 1.1em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  border-bottom: 1.2px solid var(--color-neutral-80); /* Linha fina abaixo */
+  padding-bottom: 5px;
+}
+
+.historico-jogos h6 {
+  color: #5d6d7e; /* Cinza-azulado leve para grupos */
+  font-size: 0.95em;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.historico-jogos table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px; /* Espaçamento vertical entre linhas */
+  background-color: transparent;
+}
+
+.historico-jogos th {
+  background-color: var(--color-neutral-60); /* Fundo quase transparente */
+  color: #34495e; /* Texto azul médio */
+  padding: 6px 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-neutral-80);
+}
+
+.historico-jogos td {
+  background-color: #fafafa; /* Cinza muito claro */
+  color: #555; /* Texto cinza escuro suave */
+  padding: 6px 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border: none; /* Sem bordas nas células */
+  border-radius: 4px; /* Bordas arredondadas nas células */
+}
+
+.historico-jogos tr:hover td {
+  background-color: #f0f0f0; /* Hover sutil */
+  transition: background-color 0.2s ease;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 600px) {
+  .historico-jogos {
+    width: 100%;
+    left: 0;
+    transform: none;
+    padding: 10px;
+  }
+
+  .historico-jogos h4 {
+    font-size: 1.1em;
+  }
+
+  .historico-jogos h5 {
+    font-size: 1em;
+  }
+
+  .historico-jogos h6 {
+    font-size: 0.9em;
+  }
+
+  .historico-jogos table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .historico-jogos th,
+  .historico-jogos td {
+    padding: 5px 6px;
+    font-size: 0.8em;
+    min-width: 70px;
+  }
+}
+
+/* Garante layout desktop */
+@media (min-width: 601px) {
+  .historico-jogos {
+    width: 110%;
+    left: -6px;
+    transform: translateX(5px);
   }
 }

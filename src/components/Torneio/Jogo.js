@@ -35,8 +35,9 @@ function Jogo({ jogo, onSubmeterPlacar }) {
         ) : (
           <>
             <input 
-              type="tel" // Define como telefone para permitir hífen e abrir teclado numérico
-              inputMode="numeric" // Força o teclado numérico em dispositivos móveis
+              type="text" // Mudamos para text para maior controle
+              inputMode="numeric" // Força teclado numérico
+              pattern="[0-9-]*" // Restringe a números e hífen
               value={placar}
               onChange={(e) => setPlacar(e.target.value)}
               placeholder="Placar (ex: 3-2)"
