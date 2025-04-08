@@ -70,16 +70,24 @@ export const criarJogosParaGrupo = (duplas, grupoId) => {
 
 export const dividirGrupos = (duplas) => {
   let numGrupos;
+  let grupos;
+
   if (duplas.length === 10) {
-    numGrupos = 2;
+    numGrupos = 2; // Mantém padrão
+  } else if (duplas.length === 14) {
+    numGrupos = 4; // 14 duplas: 2 grupos de 4, 2 grupos de 3
+    grupos = [
+      { id: 0, duplas: duplas.slice(0, 4) },   // 4 duplas
+      { id: 1, duplas: duplas.slice(4, 8) },   // 4 duplas
+      { id: 2, duplas: duplas.slice(8, 11) },  // 3 duplas
+      { id: 3, duplas: duplas.slice(11, 14) }, // 3 duplas
+    ];
   } else if (duplas.length <= 5) {
     numGrupos = 1;
   } else if (duplas.length <= 8) {
     numGrupos = 2;
   } else if (duplas.length <= 11) {
     numGrupos = 3;
-  } else if (duplas.length <= 14) {
-    numGrupos = 4;
   } else if (duplas.length <= 17) {
     numGrupos = 5;
   } else if (duplas.length <= 20) {
@@ -88,63 +96,83 @@ export const dividirGrupos = (duplas) => {
     numGrupos = Math.ceil(duplas.length / 3);
   }
 
-  const grupos = Array(numGrupos)
-    .fill()
-    .map((_, i) => ({
-      id: i,
-      duplas: duplas.slice(
-        i * Math.ceil(duplas.length / numGrupos),
-        (i + 1) * Math.ceil(duplas.length / numGrupos)
-      ),
-    }));
+  if (!grupos) {
+    grupos = Array(numGrupos)
+      .fill()
+      .map((_, i) => ({
+        id: i,
+        duplas: duplas.slice(
+          i * Math.ceil(duplas.length / numGrupos),
+          (i + 1) * Math.ceil(duplas.length / numGrupos)
+        ),
+      }));
+  }
 
   return grupos.filter((grupo) => grupo.duplas.length > 0);
 };
 
 export const classificarDuplas = (grupos) => {
   let classificados = [];
-
   grupos.forEach((grupo) => {
     const duplasClassificadas = classificarDuplasPorDesempate(grupo.duplas, grupo.jogos);
-    classificados.push(duplasClassificadas[0], duplasClassificadas[1]);
+    classificados.push(
+      { dupla: duplasClassificadas[0], grupoId: grupo.id }, // 1º do grupo
+      { dupla: duplasClassificadas[1], grupoId: grupo.id }  // 2º do grupo
+    );
   });
-
   console.log('Duplas classificadas para a fase eliminatória:', classificados);
   return classificados;
 };
 
 export const iniciarFaseEliminatoria = (classificados) => {
-  let totalDuplas = classificados.length;
-  let rodadas = Math.ceil(Math.log2(totalDuplas));
-  let proximoMultiplo = Math.pow(2, rodadas);
-  let byes = proximoMultiplo - totalDuplas;
+  let totalDuplas = classificados.length; // 8
+  let rodadas = Math.ceil(Math.log2(totalDuplas)); // 3
+  let proximoMultiplo = Math.pow(2, rodadas); // 8
+  let byes = proximoMultiplo - totalDuplas; // 0
   let classificadosAjustados = [...classificados];
-  for (let i = 0; i < byes; i++) {
-    classificadosAjustados.push(['BYE', '']);
-  }
 
-  let faseNome;
-  if (rodadas === 1) {
-    faseNome = 'Final';
-  } else if (rodadas === 2) {
-    faseNome = 'Semifinal';
-  } else if (rodadas === 3) {
-    faseNome = 'Quartas de Final';
-  } else {
-    faseNome = `Rodada 1`;
-  }
+  // Separar primeiros e segundos colocados
+  const primeiros = classificadosAjustados.filter((c, i) => i % 2 === 0); // 1º de cada grupo
+  const segundos = classificadosAjustados.filter((c, i) => i % 2 === 1);  // 2º de cada grupo
 
+  // Embaralhar para variar os cruzamentos
+  const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+  const primeirosShuffled = shuffleArray([...primeiros]);
+  const segundosShuffled = shuffleArray([...segundos]);
+
+  // Criar jogos garantindo que duplas do mesmo grupo não se enfrentem
   let jogosRodada = [];
-  for (let i = 0; i < classificadosAjustados.length; i += 2) {
+  for (let i = 0; i < primeirosShuffled.length; i++) {
+    const primeiro = primeirosShuffled[i];
+    const segundo = segundosShuffled[i];
+    if (primeiro.grupoId === segundo.grupoId) {
+      // Troca o segundo com o próximo disponível de grupo diferente
+      const swapIndex = (i + 1) % segundosShuffled.length;
+      segundosShuffled[i] = segundosShuffled[swapIndex];
+      segundosShuffled[swapIndex] = segundo;
+    }
     jogosRodada.push({
-      dupla1: classificadosAjustados[i],
-      dupla2: classificadosAjustados[i + 1],
+      dupla1: primeiro.dupla,
+      dupla2: segundosShuffled[i].dupla,
       placar: '',
       submetido: false,
-      fase: faseNome,
+      fase: totalDuplas <= 2 ? 'Final' : totalDuplas <= 4 ? 'Semifinal' : totalDuplas <= 8 ? 'Quartas de Final' : 'Oitavas de Final',
       rodada: 1,
     });
   }
+
+  // Adicionar BYEs, se necessário (não aplica para 8 duplas)
+  for (let i = 0; i < byes; i++) {
+    jogosRodada.push({
+      dupla1: classificadosAjustados[classificadosAjustados.length - byes + i].dupla,
+      dupla2: ['BYE', ''],
+      placar: '',
+      submetido: false,
+      fase: totalDuplas <= 2 ? 'Final' : totalDuplas <= 4 ? 'Semifinal' : totalDuplas <= 8 ? 'Quartas de Final' : 'Oitavas de Final',
+      rodada: 1,
+    });
+  }
+
   return jogosRodada;
 };
 

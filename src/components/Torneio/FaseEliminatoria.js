@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Jogo from './Jogo';
 
 function FaseEliminatoria({ jogos, onAtualizarPlacar, onAvancarParaFinal }) {
-  // Certifique-se de que onAtualizarPlacar existe antes de usá-lo
+  const [jogosSubmetidos, setJogosSubmetidos] = useState(jogos);
+
+  useEffect(() => {
+    setJogosSubmetidos(jogos);
+  }, [jogos]);
+
   const handleSubmitScore = (jogo, placar) => {
     if (typeof onAtualizarPlacar === 'function') {
       onAtualizarPlacar(jogo, placar);
-      
-      // Verifica se todos os jogos da fase eliminatória foram submetidos
-      if (jogos.every(j => j.submetido)) {
-        if (typeof onAvancarParaFinal === 'function') {
-          onAvancarParaFinal(jogos);
-        }
+
+      const updatedJogos = jogosSubmetidos.map((j) =>
+        j === jogo ? { ...j, placar, submetido: true } : j
+      );
+      setJogosSubmetidos(updatedJogos);
+
+      if (updatedJogos.every((j) => j.submetido) && typeof onAvancarParaFinal === 'function') {
+        onAvancarParaFinal(updatedJogos);
       }
     } else {
       console.error('onAtualizarPlacar não é uma função');
@@ -21,13 +28,10 @@ function FaseEliminatoria({ jogos, onAtualizarPlacar, onAvancarParaFinal }) {
   return (
     <div>
       <h2>Fase Eliminatória</h2>
-      {jogos.map((jogo, index) => (
+      {jogosSubmetidos.map((jogo, index) => (
         <div key={index}>
           <h3>{jogo.fase}</h3>
-          <Jogo 
-            jogo={jogo} 
-            onSubmeterPlacar={handleSubmitScore}
-          />
+          <Jogo jogo={jogo} onSubmeterPlacar={handleSubmitScore} />
         </div>
       ))}
     </div>

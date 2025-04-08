@@ -1,5 +1,10 @@
 import React from 'react';
 
+import downloadIcon from '../../assets/icons/download.svg';
+import uploadIcon from '../../assets/icons/upload.svg';
+import ballIcon from '../../assets/icons/ball.svg';
+
+
 function MeusTorneios({
   tournaments,
   onSelectTournament,
@@ -55,20 +60,28 @@ function MeusTorneios({
       <h2>Meus Torneios</h2>
       <div className="button-container">
         <button className="criarTorneio" onClick={onCreateNew}>
-          Criar Novo Torneio
+        <img src={ballIcon} alt="ball Icon" className="ball-icon" />
+          Novo Torneio
         </button>
-        <button className="exportarTorneio" onClick={handleExport}>
-          Exportar Torneios
-        </button>
-        <label className="importarTorneio">
-          Importar Torneios
-          <input
-            type="file"
-            accept=".json"
-            onChange={handleImport}
-            style={{ display: 'none' }} // Esconde o input, usa o label como botão
-          />
-        </label>
+      </div>
+      <div className='imports'>
+  <button className="exportarTorneio" onClick={handleExport}>
+    <img src={uploadIcon} alt="Upload Icon" className="upload-icon" />
+    Exportar Torneios
+  </button>
+  
+  {/* Substituímos o <button> por um <label> estilizado */}
+  <label className="importarTorneio" htmlFor="import-file">
+    <img src={downloadIcon} alt="Download Icon" className="download-icon" />
+    Importar Torneios
+  </label>
+  <input
+    id="import-file"
+    type="file"
+    accept=".json"
+    onChange={handleImport}
+    style={{ display: 'none' }} // Mantemos o input escondido
+  />
       </div>
       {Object.keys(tournaments).length === 0 ? (
         <p>Nenhum torneio salvo ainda.</p>

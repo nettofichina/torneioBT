@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Jogo from './Jogo';
 
 function FaseFinal({ jogos, onAtualizarPlacar, onFinalizarTorneio }) {
+  const [jogosSubmetidos, setJogosSubmetidos] = useState(jogos);
+
+  useEffect(() => {
+    setJogosSubmetidos(jogos);
+  }, [jogos]);
+
   const handleSubmitScore = (jogo, placar) => {
     if (typeof onAtualizarPlacar === 'function') {
       onAtualizarPlacar(jogo, placar);
-
-      // Verifica se todos os jogos da fase final foram submetidos
-      if (jogos.every(j => j.submetido)) {
-        if (typeof onFinalizarTorneio === 'function') {
-          onFinalizarTorneio();
-        }
-      }
+      setJogosSubmetidos((prev) =>
+        prev.map((j) => (j === jogo ? { ...j, placar, submetido: true } : j))
+      );
     } else {
       console.error('onAtualizarPlacar não é uma função');
     }
@@ -20,7 +22,7 @@ function FaseFinal({ jogos, onAtualizarPlacar, onFinalizarTorneio }) {
   return (
     <div>
       <h2>Fase Final</h2>
-      {jogos.map((jogo, index) => (
+      {jogosSubmetidos.map((jogo, index) => (
         <div key={index}>
           <h3>{jogo.fase}</h3>
           <Jogo 
