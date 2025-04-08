@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/torneioBT/static/css/main.d9cada30.css",
-    "main.js": "/torneioBT/static/js/main.c1f5cca8.js",
+    "main.css": "/torneioBT/static/css/main.76a5fd42.css",
+    "main.js": "/torneioBT/static/js/main.71e8abc0.js",
     "static/js/488.76e8b861.chunk.js": "/torneioBT/static/js/488.76e8b861.chunk.js",
     "static/media/game-day.svg": "/torneioBT/static/media/game-day.8a89dbc4cbe6a3690f10e64e0060ede2.svg",
     "static/media/btConnect.png": "/torneioBT/static/media/btConnect.38544d22fff6bcd79c8b.png",
+    "static/media/ball.svg": "/torneioBT/static/media/ball.5b2806fbda10987c86f3c5a11a9adb65.svg",
     "static/media/tournaments.svg": "/torneioBT/static/media/tournaments.7033ba59047b15947d53fe0405bc3661.svg",
     "index.html": "/torneioBT/index.html",
     "static/media/person_add.svg": "/torneioBT/static/media/person_add.c0393ddaac3c1909a4d4c7882e8bfd7a.svg",
     "static/media/group_remove.svg": "/torneioBT/static/media/group_remove.a2dea408ee66d98c0e6956ee9565f1f9.svg",
     "static/media/folder.svg": "/torneioBT/static/media/folder.39ca548472f617c91032216d2160d41c.svg",
+    "static/media/upload.svg": "/torneioBT/static/media/upload.23b589f129264d9b680fae9c6596bcb2.svg",
+    "static/media/download.svg": "/torneioBT/static/media/download.3b0bd743873f49d2028431ab078c4aca.svg",
     "static/media/shuffle.svg": "/torneioBT/static/media/shuffle.8f6f4a039fd2180133f27bd719004114.svg",
-    "main.d9cada30.css.map": "/torneioBT/static/css/main.d9cada30.css.map",
-    "main.c1f5cca8.js.map": "/torneioBT/static/js/main.c1f5cca8.js.map",
+    "main.76a5fd42.css.map": "/torneioBT/static/css/main.76a5fd42.css.map",
+    "main.71e8abc0.js.map": "/torneioBT/static/js/main.71e8abc0.js.map",
     "488.76e8b861.chunk.js.map": "/torneioBT/static/js/488.76e8b861.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9cada30.css",
-    "static/js/main.c1f5cca8.js"
+    "static/css/main.76a5fd42.css",
+    "static/js/main.71e8abc0.js"
   ]
 }
